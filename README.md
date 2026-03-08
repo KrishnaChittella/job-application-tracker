@@ -1,6 +1,6 @@
 # Job Application Tracker with Outlook Email Sync
 
-A full-stack portfolio project to track job applications manually and sync status updates from Outlook using Microsoft Graph API with **rule-based keyword parsing** (no paid AI APIs).
+A full-stack portfolio project to track job applications manually and sync status updates from Outlook using Microsoft Graph API with **rule-based keyword parsing**.
 
 ## Tech stack
 
@@ -187,4 +187,4 @@ The app uses keyword/phrase rules in `EmailStatusParser` to map email subject an
 - **ASSESSMENT:** e.g. “online assessment”, “coding assessment”
 - **APPLIED:** e.g. “application received”, “thank you for applying”
 
-Company hint is taken from sender email domain or display name. No paid AI or external APIs are used for parsing.
+Company hint is taken from sender email domain or display name.
