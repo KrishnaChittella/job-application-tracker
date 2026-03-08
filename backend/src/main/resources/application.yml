@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: job-application-tracker
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jobtracker
+    # Override with env: SPRING_DATASOURCE_USERNAME, SPRING_DATASOURCE_PASSWORD (on macOS often your system username, not postgres)
+    username: ${SPRING_DATASOURCE_USERNAME:krishnachittella}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+# JWT (use env vars or change for production)
+jwt:
+  secret: ${JWT_SECRET:your-256-bit-secret-key-change-in-production-must-be-at-least-32-chars}
+  expiration-ms: 86400000  # 24 hours
+
+# Microsoft Graph / Azure AD (configure in Azure Portal)
+azure:
+  client-id: ${AZURE_CLIENT_ID:}
+  client-secret: ${AZURE_CLIENT_SECRET:}
+  tenant-id: ${AZURE_TENANT_ID:}
+  redirect-uri: ${AZURE_REDIRECT_URI:http://localhost:3000/outlook/callback}
+
+# CORS for local frontend
+app:
+  cors-allowed-origins: http://localhost:5173,http://localhost:3000
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
